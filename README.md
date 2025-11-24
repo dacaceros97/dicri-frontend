@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# DICRI - Sistema de Control de Evidencias (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada como parte de la Prueba Técnica para la posición de Analista de Sistemas 2 / Frontend Developer. Este sistema permite la gestión, trazabilidad y análisis de evidencias forenses.
 
-Currently, two official plugins are available:
+## 🚀 Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto es el cliente (Frontend) de la solución Fullstack. Provee una interfaz moderna, intuitiva y responsiva para que técnicos y coordinadores gestionen expedientes, registren indicios y visualicen reportes estadísticos.
 
-## React Compiler
+## 🛠️ Stack Tecnológico
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El proyecto fue construido utilizando las mejores prácticas modernas de desarrollo web:
 
-## Expanding the ESLint configuration
+- **Core:** [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/) (Para un entorno de desarrollo ultra rápido)
+- **UI Framework:** [Material UI (MUI)](https://mui.com/) v5/v6
+- **Data Fetching:** [Axios](https://axios-http.com/) (Cliente HTTP configurado)
+- **Gráficas:** [Recharts](https://recharts.org/) (Visualización de datos)
+- **Alertas/UX:** [SweetAlert2](https://sweetalert2.github.io/)
+- **Enrutamiento:** [React Router DOM](https://reactrouter.com/)
+- **Infraestructura:** Docker + Nginx
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Funcionalidades Principales
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **Autenticación Segura:** Login con manejo de JWT y feedback visual interactivo.
+2.  **Dashboard de Expedientes:** Tabla de datos avanzada (`DataGrid`) con búsqueda en servidor, paginación y estados visuales.
+3.  **Gestión Maestro-Detalle:** Formulario para crear expedientes y múltiples indicios en una sola transacción visual.
+4.  **Flujo de Aprobación:** Interfaz para coordinadores que permite Aprobar o Rechazar expedientes (con justificación obligatoria).
+5.  **Reportes Ejecutivos:** Módulo de análisis con filtros de fecha/estado, gráficas de barras y tablas detalladas.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📂 Estructura del Proyecto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── api/            # Configuración de Axios (Cliente HTTP)
+├── components/     # Componentes reutilizables (Layout, Navbar)
+├── context/        # Contexto global (AuthContext para sesión)
+├── interfaces/     # Definiciones de tipos TypeScript (Modelos)
+├── pages/          # Vistas principales (Login, Dashboard, Reportes, etc.)
+├── main.tsx        # Punto de entrada
+└── App.tsx         # Configuración de Rutas y Seguridad
 ```
